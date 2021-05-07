@@ -77,6 +77,25 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  color: Colors.purple,
+                  width: 100,
+                  height: 100,
+                  padding: EdgeInsets.all(20),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    color: Colors.lightGreen,
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
