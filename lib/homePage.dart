@@ -41,16 +41,97 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           children: [
             Row(
-              
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: ElevatedButton(onPressed: (){
+                    null; 
+                  }, child:
+                  Text('Exploration')),
+                ),
+                Expanded(
+                  child: ElevatedButton(onPressed: (){
+                    null;
+                  }, child:
+                  Text('Menu')),
+                ),
+              ],
+            ),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                color: Colors.brown,
+                width: 300,
+                height: 300,
+                child: Center(
+                  child: Text('Town', style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),),
+                ),
+              ),
+
+            ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Table(
+                  border: TableBorder.all(),
+                  columnWidths: {
+                    0: IntrinsicColumnWidth(),
+                    1: IntrinsicColumnWidth(),
+                  },
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  children: [
+                    TableRow(
+                        children:
+                        [
+                          Container(
+                            height: 30,
+                            child: Text('Sample'),
+                          ),
+                          Container(
+                            height: 30,
+                            child: Text('Num'),
+                          )
+                        ]
+                    ),
+                    TableRow(
+                        children:
+                        [
+                          Container(
+                            height: 30,
+                            child: Text('Sample'),
+                          ),
+                          Container(
+                            height: 30,
+                            child: Text('Num'),
+                          )
+                        ]
+                    ),
+                    TableRow(
+                        children:
+                        [
+                          Container(
+                            height: 30,
+                            child: Text('Sample'),
+                          ),
+                          Container(
+                            height: 30,
+                            child: Text('Num'),
+                          )
+                        ]
+                    ),
+                  ],
+                ),
+              ],
             )
           ],
 
