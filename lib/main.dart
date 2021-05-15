@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'homePage.dart';
 import 'timsTestPage.dart';
+import 'timeKeeper.dart';
 
 void main() {
+  TimeKeeper.main();
   runApp(MyApp());
 }
 

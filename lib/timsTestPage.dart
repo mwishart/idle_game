@@ -1,6 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+
+import 'timeKeeper.dart';
+import 'globals.dart' as globals;
 
 class MyTestPage extends StatefulWidget {
   MyTestPage({Key key, this.title}) : super(key: key);
@@ -23,7 +25,7 @@ class MyTestPage extends StatefulWidget {
 
 class _MyTestPageState extends State<MyTestPage> {
   int _counter = 0;
-  var _time = DateTime.now();
+  //var _time = DateTime.now();
   int year = 0;
   int month = 0;
   int hour = 0;
@@ -31,6 +33,7 @@ class _MyTestPageState extends State<MyTestPage> {
   int timePassed = 0;
   String pluralCheck = "seconds";
 
+  /*
   Timer timer;
   @override
   void initState() {
@@ -43,7 +46,7 @@ class _MyTestPageState extends State<MyTestPage> {
     timer?.cancel();
     super.dispose();
   }
-
+*/
 
 
 
@@ -62,8 +65,8 @@ class _MyTestPageState extends State<MyTestPage> {
   void _checkTime() {
     setState(() {
 
-      var lastTime = _time;
-      _time = DateTime.now();
+      /*var lastTime = _time;
+      _time = TimeKeeper._time;
 
       year = _time.year;
       month = _time.month;
@@ -73,6 +76,7 @@ class _MyTestPageState extends State<MyTestPage> {
       timePassed = ((_time.microsecondsSinceEpoch - lastTime.microsecondsSinceEpoch)/1000000).truncate();
       if (timePassed == 1) pluralCheck = "second";
       else pluralCheck = "seconds";
+       */
     });
   }
 
