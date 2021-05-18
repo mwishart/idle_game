@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import 'timeKeeper.dart';
+//import 'timeKeeper.dart';
+import 'buildings.dart';
 import 'globals.dart' as globals;
 
 class MyTestPage extends StatefulWidget {
@@ -25,20 +26,20 @@ class MyTestPage extends StatefulWidget {
 
 class _MyTestPageState extends State<MyTestPage> {
   int _counter = 0;
-  //var _time = DateTime.now();
+  var _time = DateTime.now();
   int year = 0;
   int month = 0;
   int hour = 0;
   int day = 0;
-  int timePassed = 0;
+  double timePassed = 0;
+  String sTimePassed = "";
   String pluralCheck = "seconds";
 
-  /*
   Timer timer;
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(Duration(seconds: 1), (Timer t) => _checkTime());
+    timer = Timer.periodic(Duration(seconds: 3), (Timer t) => _checkTime());
   }
 
   @override
@@ -46,7 +47,7 @@ class _MyTestPageState extends State<MyTestPage> {
     timer?.cancel();
     super.dispose();
   }
-*/
+
 
 
 
@@ -65,18 +66,22 @@ class _MyTestPageState extends State<MyTestPage> {
   void _checkTime() {
     setState(() {
 
-      /*var lastTime = _time;
-      _time = TimeKeeper._time;
+      globals.lastTime = _time;
+      _time = DateTime.now();
 
       year = _time.year;
       month = _time.month;
       hour = _time.hour;
       day = _time.day;
 
-      timePassed = ((_time.microsecondsSinceEpoch - lastTime.microsecondsSinceEpoch)/1000000).truncate();
+      timePassed = ((_time.microsecondsSinceEpoch - globals.lastTime.microsecondsSinceEpoch)/1000000);
+      sTimePassed = timePassed.toStringAsFixed(2);
+
+      Buildings.buildingCheck(timePassed);
+
       if (timePassed == 1) pluralCheck = "second";
       else pluralCheck = "seconds";
-       */
+
     });
   }
 
@@ -124,7 +129,8 @@ class _MyTestPageState extends State<MyTestPage> {
               'This much time has passed since you last pressed the button:',
             ),
             Text(
-              '$timePassed $pluralCheck',
+              globals.stockpile["Gold"].toStringAsFixed(2) + " " + globals.stockpile["Coal"].toStringAsFixed(2),
+              //'$sTimePassed $pluralCheck',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
