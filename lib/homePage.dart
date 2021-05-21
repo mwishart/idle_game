@@ -1,55 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:idlegame/components/topBar.dart';
 import 'constants.dart';
+import 'components/homepagetable.dart';
+import 'components/topBar.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int rowNum = 10; //TODO: this value should come from how much stuff the user has
+
+
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
+
     return Scaffold(
       body: Center(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: ElevatedButton(onPressed: (){
-                    null; 
-                  }, child:
-                  Text('Exploration')),
-                ),
-                Expanded(
-                  child: ElevatedButton(onPressed: (){
-                    null;
-                  }, child:
-                  Text('Menu')),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.max,
+                children:
+                  topBar(),
+
+              ),
             ),
             Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -68,65 +51,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Table(
-                  border: TableBorder.all(),
-                  columnWidths: {
-                    0: IntrinsicColumnWidth(),
-                    1: IntrinsicColumnWidth(),
-                  },
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  children: [
-                    TableRow(
-                        children:
-                        [
-                          Container(
-                            height: 30,
-                            child: Text('Sample'),
-                          ),
-                          Container(
-                            height: 30,
-                            child: Text('Num'),
-                          )
-                        ]
-                    ),
-                    TableRow(
-                        children:
-                        [
-                          Container(
-                            height: 30,
-                            child: Text('Sample'),
-                          ),
-                          Container(
-                            height: 30,
-                            child: Text('Num'),
-                          )
-                        ]
-                    ),
-                    TableRow(
-                        children:
-                        [
-                          Container(
-                            height: 30,
-                            child: Text('Sample'),
-                          ),
-                          Container(
-                            height: 30,
-                            child: Text('Num'),
-                          )
-                        ]
-                    ),
-                  ],
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                    homePageTable(rowNum), //currently using a Table. Might want to use a ListView in the future
+                ],
+              ),
             )
           ],
-
         ),
         ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+
