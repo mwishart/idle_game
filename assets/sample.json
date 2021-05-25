@@ -1,0 +1,17 @@
+{
+	"buildings":[
+	{
+		"id":"01",
+		"type":"mine",
+		"level": 1
+		
+	},
+	{
+		"id":"02",
+		"type":"farm",
+		"level": 1
+	}
+	]
+
+	
+}
