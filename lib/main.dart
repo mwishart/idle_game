@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SecondPage(title: 'Idle Game'),
+      home: SecondPage(title: 'Home Page'),
     );
   }
 }
