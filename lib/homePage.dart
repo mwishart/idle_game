@@ -12,8 +12,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int rowNum = 10; //TODO: this value should come from how much stuff the user has
 
+ Map<String, String> buildingData = {'Mine': '3', 'Castle': '4'}; //this data will be read in from a function at a later point
 
 
   @override
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                    homePageTable(rowNum), //currently using a Table. Might want to use a ListView in the future
+                    homePageTable(buildingData), //currently using a Table. Might want to use a ListView in the future
                 ],
               ),
             )
