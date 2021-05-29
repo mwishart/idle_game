@@ -5,18 +5,12 @@ class Building{
   String id;
   int level;
   String type;
-<<<<<<< Updated upstream
-  int numWorkers;
-
-  Building(this.id,this.level,this.type,this.numWorkers);
-=======
   int resource;
   int maxCivs;
   int civsWorking;
   int resourceGenPerTick;
 
   Building(this.id,this.level,this.type,this.resource,this.maxCivs,this.civsWorking, this.resourceGenPerTick);
->>>>>>> Stashed changes
 
 
   Future<void> updateLevel() async{
@@ -24,23 +18,13 @@ class Building{
     final data = await json.decode(response);
     level = int.parse(data["building"][int.parse(id)]["level"]);
   }
-
-}
-
-class VariableResourceBuilding extends Building {
-  String targetResource;
-  VariableResourceBuilding(this.targetResource) : super('', 0, '', 0);
-
-  updateTargetResource(String target) {
-    targetResource = target;
-  }
   Future<List> getBuildingStats() async {
     final String response = await rootBundle.loadString('assets/sample.json');
     final data = await json.decode(response);
-      List<String> buildingStats = List<String>();
-      buildingStats.add(data["building"][int.parse(id)]['type']);
-      buildingStats.add(data["building"][int.parse(id)]['level']);
-      return data;
+    List<String> buildingStats = List<String>();
+    buildingStats.add(data["building"][int.parse(id)]['type']);
+    buildingStats.add(data["building"][int.parse(id)]['level']);
+    return data;
   }
 
 }
