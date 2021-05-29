@@ -5,9 +5,18 @@ class Building{
   String id;
   int level;
   String type;
+<<<<<<< Updated upstream
   int numWorkers;
 
   Building(this.id,this.level,this.type,this.numWorkers);
+=======
+  int resource;
+  int maxCivs;
+  int civsWorking;
+  int resourceGenPerTick;
+
+  Building(this.id,this.level,this.type,this.resource,this.maxCivs,this.civsWorking, this.resourceGenPerTick);
+>>>>>>> Stashed changes
 
 
   Future<void> updateLevel() async{
@@ -34,4 +43,19 @@ class VariableResourceBuilding extends Building {
       return data;
   }
 
+}
+
+class VariableResourceBuilding extends Building {
+  String targetResource;
+
+  VariableResourceBuilding(this.targetResource) : super('', 0, '', 0, 1, 1, 1);
+
+  updateTargetResource(String target) {
+    targetResource = target;
+  }
+}
+
+class CraftingBuilding extends VariableResourceBuilding {
+  //something to keep track of what resources are required to produce the target resource, which is an item
+  CraftingBuilding() : super('');
 }
