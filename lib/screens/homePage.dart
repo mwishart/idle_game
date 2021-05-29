@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:idlegame/components/topBar.dart';
-import 'constants.dart';
-import 'components/homepagetable.dart';
-import 'components/topBar.dart';
+import '../constants.dart';
+import '../components/homepagetable.dart';
+import '../components/topBar.dart';
+import 'exploration.dart';
+import 'secondPage.dart';
 
 class MyHomePage extends StatefulWidget {
 
+    static const String id = 'mainPage';
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -30,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.max,
                 children:
-                  topBar(),
+                  topBar(context, ExplorationScreen.id, SecondPage.id,  'Exploration', 'Menu'),
 
               ),
             ),
