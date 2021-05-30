@@ -1,17 +1,22 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:idlegame/globals.dart' as globals;
 
 class Building{
   String id;
   int level;
   String type;
-  int resource;
+  String resource;
   int maxCivs;
   int civsWorking;
-  int resourceGenPerTick;
+  int resourceGenPerCiv;
 
-  Building(this.id,this.level,this.type,this.resource,this.maxCivs,this.civsWorking, this.resourceGenPerTick);
+  Building(this.id,this.level,this.type,this.resource,this.maxCivs,this.civsWorking, this.resourceGenPerCiv);
 
+
+  runBuilding(double timePassed) {
+    globals.stockpile[resource] += (resourceGenPerCiv*civsWorking)*(timePassed);
+  }
 
   Future<void> updateLevel() async{
     final String response = await rootBundle.loadString('assets/sample.json');
@@ -32,7 +37,7 @@ class Building{
 class VariableResourceBuilding extends Building {
   String targetResource;
 
-  VariableResourceBuilding(this.targetResource) : super('', 0, '', 0, 1, 1, 1);
+  VariableResourceBuilding(this.targetResource) : super('', 0, '', '', 1, 1, 1);
 
   updateTargetResource(String target) {
     targetResource = target;
