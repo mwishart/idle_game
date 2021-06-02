@@ -18,7 +18,7 @@ class Building{
     globals.stockpile[resource] += (resourceGenPerCiv*civsWorking)*(timePassed);
   }
 
-  Future<void> updateLevel() async{
+  Future<void> getLevel() async{
     final String response = await rootBundle.loadString('assets/sample.json');
     final data = await json.decode(response);
     level = int.parse(data["building"][int.parse(id)]["level"]);
